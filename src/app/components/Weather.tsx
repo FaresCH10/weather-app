@@ -1,17 +1,24 @@
-import React from 'react'
-import Image from 'next/image'
+import React from "react";
+import Image from "next/image";
+import { WeatherData } from "../types";
+import WeatherIcon from "./WeatherIcon";
 
-const Weather = () => {
-  return (
-    <div className='weather-container'>
-        <div>
-          <h2>London</h2>
-          <p>clear</p>
-          <h2 style={{fontSize: "3rem"}}>16°C</h2>
-        </div>
-        <Image src="/images/weather-icons/clear.png" alt='weather icon' width={100} height={100} />
-    </div>
-  )
+interface WeahterProps {
+  weatherData: WeatherData
 }
 
-export default Weather
+const Weather = ({weatherData}: WeahterProps) => {
+    const current = weatherData?.list[0]
+  return (
+    <div className="weather-container">
+      <div>
+        <h2>{weatherData.city.name}</h2>
+        <p>{current.weather[0].description}</p>
+        <h2 style={{ fontSize: "3rem" }}>{current.main.temp?.toFixed(1)}&deg;C</h2>
+      </div>
+      <WeatherIcon weatherId={current?.weather[0].id || 800} />
+    </div>
+  );
+};
+
+export default Weather;
