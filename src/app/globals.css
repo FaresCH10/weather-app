@@ -55,3 +55,18 @@ body {
 .footer-container p {
   font-weight: bold;
 }
+
+.hourly-container {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 20px;
+}
+
+
+.hourly-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  gap: 2rem;
+  
+}

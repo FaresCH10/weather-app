@@ -4,6 +4,7 @@ import Search from "./components/Search";
 import Weather from "./components/Weather";
 import CreatedBy from "./components/CreatedBy";
 import { WeatherData } from "./types";
+import HourlyForecast from "./components/HourlyForecast";
 
 const WeatherApp = () => {
 
@@ -48,6 +49,8 @@ const WeatherApp = () => {
       {loading && <p>Loading....</p>}
       {error && <p style={{color: "red"}}>{error}</p>}
       {weatherData && <Weather weatherData={weatherData} />}
+      {weatherData && <HourlyForecast list={weatherData.list} />}
+      
       <CreatedBy />
     </div>
   );

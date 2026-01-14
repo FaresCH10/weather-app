@@ -10,7 +10,7 @@ export interface WeatherData {
     list: Array<{
       dt: number;
       main: {
-        temp: number | undefined;
+        temp: number;
         feels_like: number;
         temp_min: number;
         temp_max: number;
